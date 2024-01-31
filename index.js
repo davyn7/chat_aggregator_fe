@@ -31,7 +31,7 @@ app.get("/webhook", (req, res) => {
 app.post("/webhook", (req, res) => {
     let body_param = req.body;
 
-    console.log("body param");
+    console.log("Inside this function");
 
     console.log(JSON.stringify(body_param, null, 2));
 
@@ -57,7 +57,7 @@ app.post("/webhook", (req, res) => {
                     messaging_product: "whatsapp",
                     to: sender,
                     text: {
-                        body: "Hello, I'm Davyn."
+                        body: "Hello, I'm Davyn. Your message is " + msg_body
                     },
                     headers: {  
                         "Content-Type": "application/json"
