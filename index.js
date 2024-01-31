@@ -5,15 +5,15 @@ require("dotenv").config();
 
 const app = express().use(body_parser.json());
 
-const token = process.env.TOKEN;
-const mytoken = process.env.MYTOKEN;
+const token = process.env.APP_SECRET;
+const mytoken = process.env.TOKEN;
 
 app.listen(process.env.PORT, () => {
     console.log("Webhook is listening.");
 });
 
 // To verify the callback url from dashboard side - cloud api side
-app.get("/webhook", (req, res) => {
+app.get("/facebook", (req, res) => {
     let mode = req.query["hub.mode"];
     let challenge = req.query["hub.challenge"];
     let token = req.query["hub.verify_token"];
@@ -28,7 +28,7 @@ app.get("/webhook", (req, res) => {
     }
 });
 
-app.post("/webhook", (req, res) => {
+app.post("/facebook", (req, res) => {
     let body_param = req.body;
 
     console.log("Inside this function");
