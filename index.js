@@ -61,10 +61,10 @@
 
 // app.listen();
 
-const express = require("express");
+const express = require("express"); // fastapi library on python
 const body_parser = require("body-parser");
-const axios = require("axios");
-require("dotenv").config();
+const axios = require("axios"); // request library on python
+require("dotenv").config(); // python-dotenv on python
 
 const app = express().use(body_parser.json());
 
